@@ -1,5 +1,4 @@
 class Superhero
-
     def initialize first_name, last_name
         @first_name = first_name
         @last_name = last_name
@@ -21,7 +20,6 @@ end
 # superhero
 
 class Robot
-
     def initialize name, purpose
         @name = name
         @purpose = purpose
@@ -30,7 +28,6 @@ class Robot
     def greet
         return "beep boop"
     end
-
 end
 
 def robot
@@ -44,7 +41,6 @@ end
 # robot
 
 class Starship
-
     def initialize model, ownerName
         @model = model
         @ownerName = ownerName
@@ -69,7 +65,6 @@ class Starship
             puts "Slow down speedy! That exceeds #{@model}'s top speed."
         end
     end
-
 end
 
 def starship
@@ -83,7 +78,6 @@ end
 
 class Dice
 
-    attr_accessor :roll_array, :roll, :get_rolls
 
     def initialize number_of_sides
         @number_of_sides = number_of_sides
@@ -92,22 +86,28 @@ class Dice
 
     def roll
         roll = rand(1..@number_of_sides)
-        @roll_array.push(roll)
+        @roll_array << roll
         roll
     end
 
     def get_rolls
         @roll_array
     end
-
 end
 
 def dice
-    roll1 = Dice.new 6
-    5.times do
+    puts "How many sides are on you die?"
+    sides = gets.chomp
+    choice = "y"
+    roll1 = Dice.new sides.to_i
+
+    while choice == "y"
+        puts "Roll again? y/n"
+        choice = gets.chomp
         puts "You rolled: #{roll1.roll}"
     end
-    p roll1.get_rolls
+
+    puts "Everything you've rolled: #{roll1.get_rolls}"
 end
 
 dice
